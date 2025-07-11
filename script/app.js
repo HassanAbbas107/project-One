@@ -1,27 +1,45 @@
 function init() {
 const blocks = document.querySelectorAll(".block")
 // let randomBox=Array.from({length: 9}, () => Math.floor(Math.random() * 9));//1st random method
-let blockIndex=['','','','','','','','','']
-function shuffle(arrayOfindex){
-    for(let i=arrayOfindex.lenght-1;i>0;i--){
-    const j=Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-    }return arrayOfindex;
-}//end of the shuffle array function
+let blockIndex=[0,1,2,3,4,5,6,7,8]
+let shuffled 
+let NewArr
+let currentStep
+let gameOver=false
+   function shuffle(array) {// Fisher-Yates shuffle algorithm
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }//end of the shuffle array function
 
-function getNum(event){
-    for(let i =0;i<blockIndex.length;i++){
-    blockIndex=event.target.id
-    blockIndex.textContent
+// function getNum(event){
+//     // for(let i =0;i<blockIndex.lenght;i++){
+//     // blockIndex=event.target.id}
+//     if(gameOver){return}
+//     const clickedBlock = event.target;
+//         const clickedValue = clickedBlock.textContent
+//         currentStep=clickedValue
+//         console.log(clickedValue);
+    
+// }
+    function showNumber(){
+        NewArr=shuffle(Array.from(blockIndex));
+        console.log(NewArr)
     }
-}
-
+    
     
     blocks.forEach(block=>{
-        block.addEventListener('click',getNum)
+        block.addEventListener('click',ini)
     })
-
-    function play(){
+    function ini() {
+         blockIndex=event.target.id
         
     }
+    function play(){
+        showNumber()
+        
+        
+    }play()
     }document.addEventListener("DOMContentLoaded", init);
