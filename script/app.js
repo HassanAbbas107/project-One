@@ -39,24 +39,34 @@ let gameOver=false
         });
     }
     
-    blocks.forEach(block=>{
+    blocks.forEach(block=> {
         block.addEventListener('click',clickFun)
     })
+
     function clickFun(event) {
-         blockIndex=NewArr[ event.target.id]
+         blockIndex = NewArr[event.target.id]
          checkForWin(event)
-        console.log(blockIndex)
+        console.log('This is block index', blockIndex)
     }
+
+    
     function checkForWin(event) {
         
-        if(NewArr[ event.target.id]===currentStep){
+        if(NewArr[event.target.id] === currentStep) {
+            event.target.textContent = currentStep
             currentStep++
+            console.log("This is correct")
+            const list = event.target.classList;
+            list.add("myStyle");
+        }else{
             
-            console.log("ddd")
+            const list2 = event.target.classList;
+            
+            list2.add("myStyle2");
         }
     }
     function play(){
         showNumber()
-        setInterval(hide, 3000)
+        setTimeout(hide, 3000)
     }play()
     }document.addEventListener("DOMContentLoaded", init);
