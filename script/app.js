@@ -27,8 +27,16 @@ let gameOver=false
     function showNumber(){
         NewArr=shuffle(Array.from(blockIndex));
         console.log(NewArr)
+        for (let i = 0; i < blocks.length; i++) {
+            blocks[i].textContent=NewArr[i]
+            
+        }
     }
-    
+    function hide() {
+    blocks.forEach(Element => {
+          Element.textContent=''  
+        });
+    }
     
     blocks.forEach(block=>{
         block.addEventListener('click',ini)
@@ -39,7 +47,7 @@ let gameOver=false
     }
     function play(){
         showNumber()
-        
+        setInterval(hide, 3000)
         
     }play()
     }document.addEventListener("DOMContentLoaded", init);
