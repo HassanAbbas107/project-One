@@ -5,7 +5,7 @@ let blockIndex=[0,1,2,3,4,5,6,7,8]
 let shuffled 
 let NewArr
 let total
-let currentStep
+let currentStep=0
 let gameOver=false
    function shuffle(array) {// Fisher-Yates shuffle algorithm
         for (let i = array.length - 1; i > 0; i--) {
@@ -44,11 +44,19 @@ let gameOver=false
     })
     function clickFun(event) {
          blockIndex=NewArr[ event.target.id]
+         checkForWin(event)
         console.log(blockIndex)
+    }
+    function checkForWin(event) {
+        
+        if(NewArr[ event.target.id]===currentStep){
+            currentStep++
+            
+            console.log("ddd")
+        }
     }
     function play(){
         showNumber()
         setInterval(hide, 3000)
-        
     }play()
     }document.addEventListener("DOMContentLoaded", init);
