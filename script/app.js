@@ -4,6 +4,7 @@ const blocks = document.querySelectorAll(".block")
 let blockIndex=[0,1,2,3,4,5,6,7,8]
 let shuffled 
 let NewArr
+let total
 let currentStep
 let gameOver=false
    function shuffle(array) {// Fisher-Yates shuffle algorithm
@@ -39,11 +40,11 @@ let gameOver=false
     }
     
     blocks.forEach(block=>{
-        block.addEventListener('click',ini)
+        block.addEventListener('click',clickFun)
     })
-    function ini() {
-         blockIndex=event.target.id
-        
+    function clickFun(event) {
+         blockIndex=NewArr[ event.target.id]
+        console.log(blockIndex)
     }
     function play(){
         showNumber()
