@@ -23,7 +23,7 @@
 .hidden{
     background-color: aquamarine;
     
-}
+} 
 .myStyle {
   background-color: rgb(92, 177, 92);
 }
@@ -43,5 +43,9 @@ background-size: 128px 74px;
 font-family: Cursive;
 }
 h1{
-  color: crimson;
+  color: rgb(219, 8, 50);
+  text-align:inherit;
+}
+#message{
+  text-align: center;
 }
