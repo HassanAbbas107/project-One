@@ -1,7 +1,6 @@
 function init() {
     const message = document.querySelector("#message")
     const blocks = document.querySelectorAll(".block")
-    // let randomBox=Array.from({length: 9}, () => Math.floor(Math.random() * 9));//1st random method
     let blockIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     let shuffled
     let NewArr
@@ -16,38 +15,23 @@ function init() {
         return array;
     }//end of the shuffle array function
 
-    // function getNum(event){
-    //     // for(let i =0;i<blockIndex.lenght;i++){
-    //     // blockIndex=event.target.id}
-    //     if(gameOver){return}
-    //     const clickedBlock = event.target;
-    //         const clickedValue = clickedBlock.textContent
-    //         currentStep=clickedValue
-    //         console.log(clickedValue);
-
-    // }
     function showNumber() {
         NewArr = shuffle(Array.from(blockIndex));
         console.log(NewArr)
         for (let i = 0; i < blocks.length; i++) {
             blocks[i].textContent = NewArr[i]
-
         }
     }
     function hide() {
         blocks.forEach(Element => {
             Element.textContent = ''
-        });
+        });//function for hading the number by make them equal to empty string 
     }
 
     blocks.forEach(block => {
         block.addEventListener('click', clickFun)
     })
-    function lose() {
-        //     blocks.forEach(block => {
-        //         block.removeEventListener()
-        //     });
-    }
+    
     function clickFun(event) {
         blockIndex = NewArr[event.target.id]
         checkForWin(event)
@@ -64,10 +48,10 @@ function init() {
             const list = event.target.classList;
             list.add("myStyle");
             if (currentStep === 9) {
-                message.textContent = "NICE, YOU MAKE IT"
+                message.textContent = "NICE, YOU MAKE IT"//the win message
                 setTimeout(() => {
                     location.reload()
-                }, 2000);
+                }, 3000);
             }
         } else {
             const list2 = event.target.classList;
@@ -78,10 +62,10 @@ function init() {
 
                 })
             })
-            message.textContent = "YOU LOSE :("
+            message.textContent = "YOU LOSE :("//the lose message
             setTimeout(() => {
                 location.reload()
-            }, 2000);
+            }, 3000);
         }
     }
 
