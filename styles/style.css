@@ -19,11 +19,17 @@
     flex-wrap: wrap;
 }
 .hidden{
-    display:none;
+    background-color: aquamarine;
+    
 }
 .myStyle {
   background-color: green;
 }
 .myStyle2 {
   background-color: red;
+}
+
+#message{
+  color:red;
+  size:30px
 }
