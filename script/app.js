@@ -1,16 +1,33 @@
 function init() {
     const message = document.querySelector("#message")
     const blocks = document.querySelectorAll(".block")
-    const easybtn = document.getElementById("#easy")
-    const normalbtn = document.getElementById("#normal")
-    const hardbtn = document.getElementById("#Hard")
+    /// buttons 
+    const easybtn = document.querySelector("#easy")
+    const normalbtn = document.querySelector("#normal")
+    const hardbtn = document.querySelector("#Hard")
     let blockIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     let shuffled
     let NewArr
     let total
-    let timer=3000
+    let timer
     let currentStep = 0
     let gameOver = false
+    console.log(easybtn)
+     easybtn.addEventListener('click',setEasy)
+     normalbtn.addEventListener('click',setNormal)
+     hardbtn.addEventListener('click',setHard)
+     function setHard(){
+        timer=3400
+        play()
+     }
+     function setNormal(){
+        timer=4000
+        play()
+     }
+     function setEasy(){
+        timer=6000
+        play()
+     }
     function shuffle(array) {// Fisher-Yates shuffle algorithm
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -35,6 +52,7 @@ function init() {
     blocks.forEach(block => {
         block.addEventListener('click', clickFun)
     })
+    
     
     function clickFun(event) {
         blockIndex = NewArr[event.target.id]
@@ -76,7 +94,7 @@ function init() {
 
     function play() {
         showNumber()
-        setTimeout(hide, 3000)
+        setTimeout(hide, timer)
 
     }
     play()
