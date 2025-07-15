@@ -1,10 +1,14 @@
 function init() {
     const message = document.querySelector("#message")
     const blocks = document.querySelectorAll(".block")
+    const easybtn = document.getElementById("#easy")
+    const normalbtn = document.getElementById("#normal")
+    const hardbtn = document.getElementById("#Hard")
     let blockIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     let shuffled
     let NewArr
     let total
+    let timer=3000
     let currentStep = 0
     let gameOver = false
     function shuffle(array) {// Fisher-Yates shuffle algorithm
@@ -44,11 +48,12 @@ function init() {
         if (NewArr[event.target.id] === currentStep) {
             event.target.textContent = currentStep
             currentStep++
+            
             console.log("This is correct")
             const list = event.target.classList;
             list.add("myStyle");
             if (currentStep === 9) {
-                message.textContent = "NICE, YOU MAKE IT"//the win message
+                message.textContent = `NICE, YOU MAKE IT`//the win message
                 setTimeout(() => {
                     location.reload()
                 }, 3000);
@@ -62,7 +67,7 @@ function init() {
 
                 })
             })
-            message.textContent = "YOU LOSE :("//the lose message
+            message.textContent = `YOU LOSE :(`//the lose message
             setTimeout(() => {
                 location.reload()
             }, 3000);

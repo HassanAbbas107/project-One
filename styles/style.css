@@ -1,23 +1,30 @@
+body{background:
+      repeating-conic-gradient(from 30deg,#0000 0 120deg,#383e25 0 180deg) 
+       64px 36.928px,
+      repeating-conic-gradient(from 30deg,#a6b17e 0 60deg,#737d4c 0 120deg,#383e25 0 180deg);
+      background-size: 128px 74px;
+      font-family: Cursive;
+}
+
 .block{
     width: 75px;
     height: 75px;
     background-color: #a6b17e;
-  border: 10px outset rgb(233, 225, 50);
+    border: 10px outset rgb(233, 225, 50);
     line-height: 75px;
     font-size: 50px;
     cursor: pointer;
 }
 
 #gameContainer{
-    
     text-align: center;
+    margin: 0 auto;
 }
 #cellContainer{
     display:grid;
     grid-template-columns: repeat(3,auto);
-    width: 225px;
-    margin: auto;
-    flex-wrap: wrap;
+    width: 250px;
+    margin: 0 auto;
 
 }
 .hidden{
@@ -35,17 +42,22 @@
   color:rgb(201, 72, 72);
   size:30px
 }
-body{background:
-      repeating-conic-gradient(from 30deg,#0000 0 120deg,#383e25 0 180deg) 
-       64px 36.928px,
-      repeating-conic-gradient(from 30deg,#a6b17e 0 60deg,#737d4c 0 120deg,#383e25 0 180deg);
-background-size: 128px 74px;
-font-family: Cursive;
-}
+
 h1{
   color: rgb(219, 8, 50);
-  text-align:inherit;
+  
+  text-align:center;
 }
 #message{
   text-align: center;
+}
+#btncontent {
+  margin: 10px;
+
+}
+
+button {
+  align-self: center;
+  color: red;
+  font-size: large;
 }
