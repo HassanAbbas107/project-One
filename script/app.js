@@ -8,26 +8,45 @@ function init() {
     let blockIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     let shuffled
     let NewArr
-    let total
+    let total=10
     let timer
     let currentStep = 0
     let gameOver = false
     console.log(easybtn)
-     easybtn.addEventListener('click',setEasy)
-     normalbtn.addEventListener('click',setNormal)
-     hardbtn.addEventListener('click',setHard)
-     function setHard(){
-        timer=3400
+    easybtn.addEventListener('click', setEasy)
+    normalbtn.addEventListener('click', setNormal)
+    hardbtn.addEventListener('click', setHard)
+    let contInte
+    function setHard() {
+        timer = 2000
+        contInte = setInterval(countDown,1000)
+        const countDownElement = document.querySelector("#countDown")
+        function countDown(){
+            total--;
+            countDownElement.textContent=total+" seconds remaining"
+            if(total<=0){
+                clearInterval(contInte)
+                countDownElement.textContent="Times up"
+                setInterval(() => {
+                    location.reload()
+                }, 1000);
+            }
+            // else{
+            //     total--
+            // }
+        }
+        countDown()
+        
         play()
-     }
-     function setNormal(){
-        timer=4000
+    }
+    function setNormal() {
+        timer = 3000
         play()
-     }
-     function setEasy(){
-        timer=6000
+    }
+    function setEasy() {
+        timer = 4500
         play()
-     }
+    }
     function shuffle(array) {// Fisher-Yates shuffle algorithm
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -52,8 +71,8 @@ function init() {
     blocks.forEach(block => {
         block.addEventListener('click', clickFun)
     })
-    
-    
+
+
     function clickFun(event) {
         blockIndex = NewArr[event.target.id]
         checkForWin(event)
@@ -66,12 +85,14 @@ function init() {
         if (NewArr[event.target.id] === currentStep) {
             event.target.textContent = currentStep
             currentStep++
-            
+            total = 10
+            // countDownElement.textContent=total+" seconds remaining"
+            // clearInterval(contInte)
             console.log("This is correct")
             const list = event.target.classList;
             list.add("myStyle");
             if (currentStep === 9) {
-                message.textContent = `NICE, YOU MAKE IT`//the win message
+                message.textContent = "NICE, YOU MAKE IT"//the win message
                 setTimeout(() => {
                     location.reload()
                 }, 3000);
