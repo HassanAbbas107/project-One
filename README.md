@@ -1,6 +1,6 @@
 # Memory Test Master 🧠
 
-![Memory Game Screenshot](https://github.com/user-attachments/assets/465011f0-2e34-45eb-abea-6e885fa11591)
+
 
 A sleek, modern memory training game built with Vanilla JavaScript, HTML5, and CSS3. Challenge your brain by remembering and repeating increasingly complex patterns!
 
