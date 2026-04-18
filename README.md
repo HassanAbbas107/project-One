@@ -1,92 +1,58 @@
-# Memory Game 🧠
+# Memory Test Master 🧠
 
 ![Memory Game Screenshot](https://github.com/user-attachments/assets/465011f0-2e34-45eb-abea-6e885fa11591)
 
-A challenging memory game where players must remember and reproduce number patterns on a 3x3 grid. Test your memory with three difficulty levels!
+A sleek, modern memory training game built with Vanilla JavaScript, HTML5, and CSS3. Challenge your brain by remembering and repeating increasingly complex patterns!
 
-## Table of Contents
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [How to Play](#how-to-play)
-- [Game Rules](#game-rules)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-- [Key Functionality](#key-functionality)
-- [Contributing](#contributing)
-- [Contact](#contact)
+## 🚀 Features
 
-## About The Project
+- **Modern Dark UI**: A clean, eye-pleasing interface designed for focus.
+- **Three Difficulty Levels**:
+  - **Easy**: 3-tile sequence, 10 seconds per round.
+  - **Normal**: 5-tile sequence, 15 seconds per round.
+  - **Hard**: 7-tile sequence, 20 seconds per round.
+- **Dynamic Feedback**: Visual animations for correct and incorrect moves (Green for correct, Red for wrong).
+- **Stats Tracking**: Keeps track of your current round and total score.
+- **Responsive Design**: Playable on desktop, tablet, and mobile devices.
 
-This memory challenge game tests your ability to remember number patterns displayed on a 3x3 grid. With three difficulty levels (Easy, Normal, Hard), the game offers varying challenges to push your memory limits.
+## 🎮 How to Play
 
-## Features
+1. **Choose a Difficulty**: Click Easy, Normal, or Hard to start the game.
+2. **Watch the Sequence**: The grid will highlight a series of tiles. Watch them carefully!
+3. **Repeat the Pattern**: Once the sequence finishes, click the tiles in the exact same order.
+4. **Beat the Clock**: You must complete the sequence before the timer runs out.
+5. **Win Rounds**: Successfully repeating a pattern increases your score and round count.
+6. **Game Over**: Clicking the wrong tile or running out of time ends the game.
 
-- Three difficulty levels with different challenge parameters
-- Visual feedback for correct/incorrect answers
-- Timer for Hard mode
-- Clean, responsive interface
-- Instant win/lose feedback
+## 🛠️ Technologies Used
 
-## How to Play
+- **HTML5**: Semantic structure and accessibility (ARIA).
+- **CSS3**: CSS Grid, Flexbox, Custom Variables, and Keyframe Animations.
+- **JavaScript (ES6+)**: Async/Await, DOM Manipulation, and Event Listeners.
 
-1. Choose a difficulty level:
-   - **Easy**: Longer display time, no timer
-   - **Normal**: Medium display time, no timer
-   - **Hard**: Short display time with countdown timer
-2. Observe the numbers that appear on the 9 blocks
-3. After numbers disappear, click blocks in ascending order (0 to 8)
-4. In Hard mode, complete the pattern before time runs out
+## 📦 Getting Started
 
-## Game Rules
+To run this project locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/HassanAbbas107/project-One.git
+   ```
+2. Navigate to the directory:
+   ```bash
+   cd UnitOneGame
+   ```
+3. Open `index.html` in your browser.
 
-- Click blocks in correct numerical order (0 through 8)
-- One mistake ends the game
-- Hard mode requires completion before timer expires
-- Correct selections turn green, incorrect turn red
+## 📜 File Structure
 
-## Built With
+```text
+UnitOneGame/
+├── index.html        # Main game structure
+├── script/
+│   └── app.js        # Game logic and state management
+└── styles/
+    └── style.css     # UI styling and animations
+```
 
-- HTML
-- CSS
-- JavaScript
-
-## Getting Started
-
-To run locally:
-1. Clone the repository
-2. Open `index.html` in your browser
-3. Start playing!
-
-## Key Functionality
-
-The core game logic is handled by the `checkForWin` function:
-
-```javascript
-function checkForWin(event) {
-    if (NewArr[event.target.id] === currentStep) {
-        event.target.textContent = currentStep;
-        currentStep++;
-        total = 10;
-        const list = event.target.classList;
-        list.add("myStyle");
-        
-        if (currentStep === 9) {
-            message.textContent = "NICE, YOU MAKE IT";
-            setTimeout(() => {
-                location.reload();
-            }, 3000);
-        }
-    } else {
-        const list2 = event.target.classList;
-        list2.add("myStyle2");
-        
-        blocks.forEach((block) => {
-            block.addEventListener('click', () => {})
-        });
-        
-        message.textContent = `YOU LOSE :(`;
-        setTimeout(() => {
-            location.reload();
-        }, 3000);
-    }
-}
+---
+*Refactored and Improved by a Senior Frontend Developer for SEB-08 Projects.*

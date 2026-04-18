@@ -3,32 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script/app.js" ></script>
+    <title>Memory Test Master</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="script/app.js" defer></script>
 </head>
 <body>
-    <h1 id="message"></h1>
-    <div id="gameContainer">
-        <h1>  Let's test your memory</h1><div>
-        <div id="cellContainer">
-            <div class="block" id="0"></div>
-            <div class="block" id="1"></div>
-            <div class="block" id="2"></div>
-            <div class="block" id="3"></div>
-            <div class="block" id="4"></div>
-            <div class="block" id="5"></div>
-            <div class="block" id="6"></div>
-            <div class="block" id="7"></div>
-            <div class="block" id="8"></div>
-            </div>
-        </div>
-    <div id="btncontent">
-        <button id ="easy">Easy</button>
-        <button id ="normal">Normal</button>
-        <button id ="Hard">Hard</button></div>
-    </div>
-    <div id="countDown" ></div>
-    
+    <header>
+        <h1>Memory Test Master</h1>
+        <p>Challenge your brain! Remember the sequence and repeat it.</p>
+    </header>
+
+    <main id="gameContainer">
+        <section id="stats" aria-label="Game Stats">
+            <div class="stat-item">Round: <span id="roundCounter">0</span></div>
+            <div class="stat-item">Score: <span id="scoreCounter">0</span></div>
+            <div id="countDown" aria-live="polite">Select Difficulty to Start</div>
+        </section>
+
+        <section id="messageContainer" aria-live="assertive">
+            <h2 id="message">Choose your level:</h2>
+        </section>
+
+        <section id="cellContainer" aria-label="Game Grid">
+            <div class="block" id="block-0" role="button" aria-label="Tile 1"></div>
+            <div class="block" id="block-1" role="button" aria-label="Tile 2"></div>
+            <div class="block" id="block-2" role="button" aria-label="Tile 3"></div>
+            <div class="block" id="block-3" role="button" aria-label="Tile 4"></div>
+            <div class="block" id="block-4" role="button" aria-label="Tile 5"></div>
+            <div class="block" id="block-5" role="button" aria-label="Tile 6"></div>
+            <div class="block" id="block-6" role="button" aria-label="Tile 7"></div>
+            <div class="block" id="block-7" role="button" aria-label="Tile 8"></div>
+            <div class="block" id="block-8" role="button" aria-label="Tile 9"></div>
+        </section>
+
+        <section id="btncontent" aria-label="Difficulty Controls">
+            <button id="easy" class="difficulty-btn" aria-label="Easy Mode (3 tiles)">Easy</button>
+            <button id="normal" class="difficulty-btn" aria-label="Normal Mode (5 tiles)">Normal</button>
+            <button id="hard" class="difficulty-btn" aria-label="Hard Mode (7 tiles)">Hard</button>
+        </section>
+    </main>
+
+    <footer id="gameFooter">
+        <p>&copy; 2026 Memory Test Master</p>
+    </footer>
 </body>
 </html>

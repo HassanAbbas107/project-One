@@ -1,66 +1,201 @@
-body{background:
-      repeating-conic-gradient(from 30deg,#0000 0 120deg,#383e25 0 180deg) 
-       64px 36.928px,
-      repeating-conic-gradient(from 30deg,#a6b17e 0 60deg,#737d4c 0 120deg,#383e25 0 180deg);
-      background-size: 128px 74px;
-      font-family: Cursive;
+/* 
+ * Memory Test Master - Styles
+ * Modern Dark UI Refactor
+ */
+
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #38bdf8;
+    --secondary: #818cf8;
+    --accent: #f472b6;
+    --success: #4ade80;
+    --error: #f87171;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --block-size: 100px;
+    --gap: 15px;
 }
 
-.block{
-    width: 75px;
-    height: 75px;
-    background-color: #a6b17e;
-    border: 10px outset rgb(233, 225, 50);
-    line-height: 75px;
-    font-size: 50px;
-    cursor: pointer;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#gameContainer{
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+header {
     text-align: center;
-    margin: 0 auto;
-}
-#cellContainer{
-    display:grid;
-    grid-template-columns: repeat(3,auto);
-    width: 250px;
-    margin: 0 auto;
-
-}
-.hidden{
-    background-color: aquamarine;
-    
-} 
-.myStyle {
-  background-color: rgb(92, 177, 92);
-}
-.myStyle2 {
-  background-color: red;
+    margin-bottom: 2rem;
 }
 
-#message{
-  color:rgb(201, 72, 72);
-  size:30px
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
 }
 
-h1{
-  color: rgb(219, 8, 50);
-  
-  text-align:center;
+header p {
+    color: var(--text-muted);
 }
-#message{
-  text-align: center;
+
+#gameContainer {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+#stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #334155;
+    font-weight: 600;
+}
+
+.stat-item {
+    font-size: 1.1rem;
+}
+
+#roundCounter, #scoreCounter {
+    color: var(--primary);
+}
+
+#countDown {
+    color: var(--accent);
+    text-align: center;
+    font-weight: bold;
+}
+
+#messageContainer {
+    margin-bottom: 1.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#message {
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+#cellContainer {
+    display: grid;
+    grid-template-columns: repeat(3, var(--block-size));
+    grid-template-rows: repeat(3, var(--block-size));
+    gap: var(--gap);
+    margin-bottom: 2rem;
+}
+
+.block {
+    background-color: #334155;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.block:hover {
+    background-color: #475569;
+    transform: scale(1.05);
+}
+
+.block:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+.block.active {
+    background-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+    transform: scale(1.1);
+}
+
+.block.correct {
+    background-color: var(--success);
+    box-shadow: 0 0 15px var(--success);
+}
+
+.block.wrong {
+    background-color: var(--error);
+    box-shadow: 0 0 15px var(--error);
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
 #btncontent {
-  margin: 10px;
-
+    display: flex;
+    gap: 10px;
+    width: 100%;
 }
 
-button {
-  align-self: center;
-  color: red;
-  font-size: large;
+.difficulty-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
 }
-#countDown{
-  color: #a01f1f;
+
+#easy { background-color: #0d9488; color: white; }
+#normal { background-color: #d97706; color: white; }
+#hard { background-color: #dc2626; color: white; }
+
+.difficulty-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+.difficulty-btn:active {
+    transform: translateY(0);
+}
+
+#gameFooter {
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    :root {
+        --block-size: 80px;
+    }
+    
+    #gameContainer {
+        padding: 1.5rem;
+    }
 }
